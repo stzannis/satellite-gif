@@ -36,26 +36,26 @@
 </head>
 <body>
 
-  <div id="radarContainer">
-    <img id="radarGif" src="https://res.cloudinary.com/dnzyvy1zq/image/upload/radar_izm_animation.gif" alt="Radar GIF">
+  <div id="satelliteContainer">
+    <img id="radarGif" src="https://res.cloudinary.com/dnzyvy1zq/image/upload/satellite_greece_latest.gif" alt="Satellite GIF">
   </div>
 
   <script>
-    const radarImg = document.getElementById("radarGif");
-    const baseUrl = "https://res.cloudinary.com/dnzyvy1zq/image/upload/radar_izm_animation.gif";
+    const radarImg = document.getElementById("satelliteGif");
+    const baseUrl = "https://res.cloudinary.com/dnzyvy1zq/image/upload/satellite_greece_latest.gif.gif";
 
     // Συνάρτηση που ανανεώνει την εικόνα
-    function updateRadar() {
+    function updateSattelite() {
       // Προσθέτουμε το timestamp για να παρακάμψουμε την cache
-      radarImg.src = baseUrl + "?v=" + Date.now();
-      console.log("Radar updated at: " + new Date().toLocaleTimeString());
+      satelliteImg.src = baseUrl + "?v=" + Date.now();
+      console.log("Satellite updated at: " + new Date().toLocaleTimeString());
     }
 
     // 1. Άμεση εκτέλεση με το που φορτώνει το script
-    updateRadar();
+    updateSatellite();
 
     // 2. Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
-    setInterval(updateRadar, 150000); 
+    setInterval(updateSattelite, 150000); 
   </script>
 
 </body>
