@@ -37,25 +37,32 @@
 <body>
 
   <div id="satelliteContainer">
-    <img id="satelliteGif" src="https://res.cloudinary.com/dnedmhp1h/image/upload/satellite_greece_latest.gif" alt="Satellite GIF">
+    <!-- Αφαιρέσαμε το src για να μην γίνεται διπλό αρχικό request -->
+    <img id="satelliteGif" alt="Satellite GIF">
   </div>
 
   <script>
     const satelliteImg = document.getElementById("satelliteGif");
     const baseUrl = "https://res.cloudinary.com/dnedmhp1h/image/upload/satellite_greece_latest.gif";
 
-    // Συνάρτηση που ανανεώνει την εικόνα
-    function updateSatellite() {
-      // Προσθέτουμε το timestamp για να παρακάμψουμε την cache
-      satelliteImg.src = baseUrl + "?v=" + Date.now();
-      console.log("Satellite updated at: " + new Date().toLocaleTimeString());
-    }
+    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
+    satelliteImg.src = baseUrl;
 
-    // 1. Άμεση εκτέλεση με το που φορτώνει το script
-    updateSatellite();
+    // =====================================================
+    // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
+    // =====================================================
 
-    // 2. Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
-    setInterval(updateSatellite, 150000); 
+    // function updateSatellite() {
+    //   satelliteImg.src = baseUrl + "?v=" + Date.now();
+    //   console.log("Satellite updated at: " + new Date().toLocaleTimeString());
+    // }
+
+    // // Άμεση εκτέλεση
+    // updateSatellite();
+
+    // // Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
+    // setInterval(updateSatellite, 150000);
+
   </script>
 
 </body>
