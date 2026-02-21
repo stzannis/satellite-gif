@@ -37,30 +37,35 @@
 <body>
 
   <div id="satelliteContainer">
-    <!-- Αφαιρέσαμε το src για να μην γίνεται διπλό αρχικό request -->
-    <img id="satelliteGif" alt="Satellite GIF">
+    <video 
+      id="satelliteVideo"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      style="width:100%; height:auto;">
+    </video>
   </div>
 
   <script>
-    const satelliteImg = document.getElementById("satelliteGif");
-    const baseUrl = "https://res.cloudinary.com/dyseyexvf/image/upload/satellite_greece_latest.mp4";
+    const satelliteVideo = document.getElementById("satelliteVideo");
+
+    // ΠΡΟΣΟΧΗ: video/upload και όχι image/upload
+    const baseUrl = "https://res.cloudinary.com/dyseyexvf/video/upload/satellite_greece_latest.mp4";
 
     // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
-    satelliteImg.src = baseUrl;
+    satelliteVideo.src = baseUrl;
 
     // =====================================================
     // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
     // =====================================================
 
     // function updateSatellite() {
-    //   satelliteImg.src = baseUrl + "?v=" + Date.now();
+    //   satelliteVideo.src = baseUrl + "?v=" + Date.now();
     //   console.log("Satellite updated at: " + new Date().toLocaleTimeString());
     // }
 
-    // // Άμεση εκτέλεση
     // updateSatellite();
-
-    // // Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
     // setInterval(updateSatellite, 150000);
 
   </script>
