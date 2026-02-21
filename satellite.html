@@ -53,21 +53,8 @@
     // ΠΡΟΣΟΧΗ: video/upload και όχι image/upload
     const baseUrl = "https://res.cloudinary.com/dyseyexvf/video/upload/satellite_greece_latest.mp4";
 
-    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
-    satelliteVideo.src = baseUrl;
-
-    // =====================================================
-    // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
-    // =====================================================
-
-    // function updateSatellite() {
-    //   satelliteVideo.src = baseUrl + "?v=" + Date.now();
-    //   console.log("Satellite updated at: " + new Date().toLocaleTimeString());
-    // }
-
-    // updateSatellite();
-    // setInterval(updateSatellite, 150000);
-
+    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST ΜΕ CACHE-BUST) ===
+    satelliteVideo.src = baseUrl + "?v=" + Date.now();
   </script>
 
 </body>
