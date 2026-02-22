@@ -25,7 +25,7 @@
       align-items: center;
     }
 
-    img {
+    video {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
@@ -42,19 +42,21 @@
       autoplay 
       muted 
       loop 
-      playsinline
-      style="width:100%; height:auto;">
+      playsinline>
     </video>
   </div>
 
   <script>
     const satelliteVideo = document.getElementById("satelliteVideo");
 
-    // ΠΡΟΣΟΧΗ: video/upload και όχι image/upload
-    const baseUrl = "https://res.cloudinary.com/dyseyexvf/video/upload/satellite_greece_latest.mp4";
-
-    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST ΜΕ CACHE-BUST) ===
-    satelliteVideo.src = baseUrl + "?v=" + Date.now();
+    fetch("satellite.json?t=" + Date.now())
+      .then(response => response.json())
+      .then(data => {
+        satelliteVideo.src = data.url;
+      })
+      .catch(error => {
+        console.error("Error loading satellite.json:", error);
+      });
   </script>
 
 </body>
